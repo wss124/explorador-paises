@@ -45,7 +45,6 @@ function renderGrid(list) {
             <p class="region">${c.regionFriendly}</p>
         `;
 
-        // Tratar clique da estrela sem abrir o país
         card.querySelector(".fav-btn").onclick = e => {
             e.stopPropagation();
             toggleFav(c.code);
@@ -55,3 +54,33 @@ function renderGrid(list) {
         grid.appendChild(card);
     });
 }
+
+function getFiltered() {
+    const q = search.value.toLowerCase();
+    const r = region.value;
+
+    return all.filter(c => {
+        if (r && r !== c.regionFilter) return false;
+        if (q && !c.name.toLowerCase().includes(q)) return false;
+        return true;
+    });
+}
+
+function render() {
+    const filtered = getFiltered();
+    const total = Math.max(1, Math.ceil(filtered.length / perPage));
+
+    if (page > total) page = total;
+
+    const slice = filtered.slice((page - 1) * perPage, page * perPage);
+
+    renderGrid(slice);
+
+    renderPagination(pagination, page, total, p => {
+        page = p;
+        render();
+    });
+}
+
+search.oninput = () => { page = 1; render(); };
+region.onchange = () => { page = 1; render(); };
