@@ -84,7 +84,7 @@ function render() {
 
 search.oninput = () => { page = 1; render(); };
 region.onchange = () => { page = 1; render(); };
-// -------------------- INICIALIZAÇÃO --------------------
+
 (async function init() {
     const data = await fetchAll();
 
