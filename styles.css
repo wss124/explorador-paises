@@ -54,7 +54,7 @@ body {
     border-radius: 8px;
 }
 
-grid {
+.grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
