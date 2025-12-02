@@ -100,14 +100,12 @@ para indicar saltos.
 ### Filtros Dinâmicos
 - **Busca por nome**: Filtra em tempo real enquanto o usuário digita
 - **Filtro por região**: Africa, Asia, Europe, Oceania, Americas
-- Ambos os filtros podem ser combinados
 
 ### Detalhes do País
 Página dedicada com:
-- Informações completas do país
+- Algumas informações do país
 - Mapa interativo incorporado via iframe do OpenStreetMap
 - Botão de favoritar/desfavoritar
-- Botão de voltar (usa history.back())
 
 ##  API Utilizada
 
@@ -115,16 +113,6 @@ Página dedicada com:
 - Endpoint lista: `https://restcountries.com/v3.1/all`
 - Endpoint detalhes: `https://restcountries.com/v3.1/alpha/{code}`
 
-##  Requisitos Atendidos
-
-- Integração com API REST  
-- Uso de ES6 Modules  
-- Manipulação do DOM  
-- Tratamento de erros assíncronos  
-- localStorage para persistência  
-- Design responsivo (mobile-first)  
-- Código organizado e modular  
-- Git com branches e commits organizados  
 
 ##  Responsividade
 
@@ -137,9 +125,6 @@ Página dedicada com:
 - [REST Countries API](https://restcountries.com/)
 - [OpenStreetMap](https://www.openstreetmap.org/)
 
-##  Licença
-
-Projeto acadêmico desenvolvido para fins educacionais.
 
 ---
 
