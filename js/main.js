@@ -84,3 +84,22 @@ function render() {
 
 search.oninput = () => { page = 1; render(); };
 region.onchange = () => { page = 1; render(); };
+// -------------------- INICIALIZAÇÃO --------------------
+(async function init() {
+    const data = await fetchAll();
+
+    all = data.map(c => ({
+        name: c.name?.common || "Sem nome",
+        official: c.name?.official || "",
+        flag: c.flags?.png || "",
+        region: c.region || "",
+        subregion: c.subregion || "",
+        regionFriendly: normalizeRegion(c),
+        regionFilter: normalizeRegion(c),
+        code: c.cca3
+    })).filter(x => x.code);
+
+    all.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
+
+    render();
+})();
